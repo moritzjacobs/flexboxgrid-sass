@@ -1,44 +1,16 @@
-Flexbox Grid Sass
-===========
-This work is an adaptation from the original [Flexbox Grid](http://flexboxgrid.com/) created by @kristoferjoseph.
+# mj-flexboxgrid-sass
 
-Grid based on the `flex` display property. [Check the documentation](http://hugeinc.github.io/flexboxgrid-sass)
+A simplified, one file, edit happy adaptation of [hugeinc/flexboxgrid-sass](https://github.com/hugeinc/flexboxgrid-sass), which in turn is an adaption of the original [Flexbox Grid](http://flexboxgrid.com/) created by @kristoferjoseph.
 
-About
-------
-By trying the [Flexbox Grid](http://flexboxgrid.com/) we saw the internal need to a SASS version of it. Thanks to the good work of Kristopher Joseph, we forked his project and sassified it.
+## Changes in this fork
+- `container-fluid` is now `container`, if you want a fullsized container, use `container-full`
+- removed the `sass-flex-mixin` dependency in favour of using autoprefixer for as much backwards compatibility as you need.
+- `mj-gulp-workflow` is used for sass compilation
+- improved file structure
 
-Install
----------
-### npm
-`npm i flexboxgrid-sass --save`
+## Docs / demo
+`npm run demo`
 
-### bower
-`bower install --save flexboxgrid-sass`
+## This fork is not published on npm
 
-Use
----------
-To modify the Flexbox grid, declare the following variables on your layout .scss
-
-#### Set the number of columns you want to use on your layout.
-`$flexboxgrid-grid-columns: 12;`
-
-#### Set the gutter between columns.
-
-`$flexboxgrid-gutter-width: 1rem;`
-
-#### Set a margin for the container sides.
-
-`$flexboxgrid-outer-margin: 1rem;`
-
-####  Create or remove breakpoints for your project
-You can modify, remove or create breakpoints before generate the final CSS.
-
-```
-$flexboxgrid-breakpoints:
-  sm 48rem,
-  md 64rem,
-  lg 80rem,
-  xlg 90rem,
-  newbreakpoint 120rem;
-```
+Hugs and K.I.S.S.es!
