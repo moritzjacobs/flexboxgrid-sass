@@ -1,6 +1,3 @@
-const imagemin = require("gulp-imagemin");
-const browserlist = ["> 0.1%"];
-
 module.exports = {
 	css: {
 		scss: {
@@ -16,7 +13,7 @@ module.exports = {
 		autoprefixer: {
 			enabled: true,
 			config: {
-				browsers: browserlist
+				browsers: ["> 1%"]
 			}
 		},
 
@@ -29,23 +26,21 @@ module.exports = {
 	},
 
 	clean: {
-		paths: ["demo/**/*.css.map"]
+		paths: ["docs/**/*.css.map"]
 	},
 
 	paths: {
-		// "DESTINATION" : ['SOURCE']
 		css: {
-			"demo/dist": ["mj-flexboxgrid.scss"],
-			demo: ["demo/sass/demo.scss"]
+			"./docs/dist": ["mj-flexboxgrid.scss", "./docs/scss/docs.scss"],
 		},
 		jade: {
-			jade: ["demo/index.jade"]
+			jade: ["docs/index.jade"]
 		}
 	},
 
 	// All tasks above are available (css, js, images and svg)
 	combinedTasks: {
-		default: [["dist", "watch", "demo"]],
+		default: [["dist", "watch", "docs"]],
 		dist: [["jade", "css", "clean"]]
 	},
 

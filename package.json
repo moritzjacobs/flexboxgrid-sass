@@ -15,7 +15,7 @@
 	"scripts": {
 		"dev": "gulp",
 		"dist": "gulp dist --env dist",
-		"demo": "gulp demo"
+		"docs": "gulp docs"
 	},
 	"repository": {
 		"type": "git",

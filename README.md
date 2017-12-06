@@ -8,8 +8,8 @@ A simplified, one file, edit happy adaptation of [hugeinc/flexboxgrid-sass](http
 - `mj-gulp-workflow` is used for sass compilation
 - improved file structure
 
-## Docs / demo
-`npm run demo`
+## Docs
+`npm run docs`
 
 ## This fork is not published on npm
 

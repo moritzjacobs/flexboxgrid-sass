@@ -5,8 +5,8 @@ const gulpJade = require("gulp-jade");
 
 require("mj-gulp-workflow")(gulp);
 
-gulp.task("demo", () => {
-	gulp.src("./demo").pipe(
+gulp.task("docs", () => {
+	gulp.src("./docs").pipe(
 		webserver({
 			port: 8080,
 			livereload: true,
@@ -26,12 +26,12 @@ jade.filters.code = block => {
 
 gulp.task("jade", () => {
 	gulp
-		.src("./demo/*.jade")
+		.src("./docs/*.jade")
 		.pipe(
 			gulpJade({
 				jade: jade,
 				pretty: true
 			})
 		)
-		.pipe(gulp.dest("./demo/"));
+		.pipe(gulp.dest("./docs/"));
 });
