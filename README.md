@@ -9,6 +9,8 @@ A simplified, one file, edit happy adaptation of [hugeinc/flexboxgrid-sass](http
 - improved file structure
 
 ## Docs
+[Online docs](https://moritzjacobs.github.io/mj-flexboxgrid-sass/)
+
 `npm run docs`
 
 ## This fork is not published on npm
