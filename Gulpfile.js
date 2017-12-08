@@ -1,7 +1,7 @@
 const gulp = require("gulp");
 const webserver = require("gulp-webserver");
-const jade = require("jade");
-const gulpJade = require("gulp-jade");
+const pug = require("pug");
+const gulpPug = require("gulp-pug");
 
 require("mj-gulp-workflow")(gulp);
 
@@ -15,7 +15,7 @@ gulp.task("docs", () => {
 	);
 });
 
-jade.filters.code = block => {
+pug.filters.code = block => {
 	return block
 		.replace(/\t/g, "  ")
 		.replace(/&/g, "&amp;")
@@ -24,12 +24,12 @@ jade.filters.code = block => {
 		.replace(/"/g, "&quot;");
 };
 
-gulp.task("jade", () => {
+gulp.task("pug", () => {
 	gulp
-		.src("./docs/*.jade")
+		.src("./docs/*.pug")
 		.pipe(
-			gulpJade({
-				jade: jade,
+			gulpPug({
+				pug: pug,
 				pretty: true
 			})
 		)
