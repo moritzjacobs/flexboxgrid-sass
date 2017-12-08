@@ -1,13 +1,30 @@
 /**
+ * Opinions
+ */
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+/**
  * Defaults
  */
 
-$grid-columns: 12;
-$gutter-width: 1rem;
-$outer-margin: 1rem;
-$breakpoints: sm 480px, md 768px, lg 1024px, xl 1200px, xxl 1440px;
-
-$max-width: 1200px;
+$mj-grid-columns: 12 !default;
+$mj-gutter-width: 1rem !default;
+$mj-outer-margin: 1rem !default;
+$mj-max-width: 1440px !default;
+$mj-breakpoints: (
+		xs: 320px,
+		sm: 480px,
+		md: 768px,
+		lg: 1024px,
+		xl: 1200px,
+		xxl: 1440px
+	)
+	!default;
 
 /**
  * Mixins
@@ -24,7 +41,17 @@ $max-width: 1200px;
 	}
 }
 
-@mixin flexboxgrid-sass-col-common {
+/***********************************
+ *********************************** 
+ **  Editing probably ends here…  **
+ *********************************** 
+ ***********************************/
+
+/**
+ * classes
+ */
+
+@mixin mj-sass-col-common($padding) {
 	box-sizing: border-box;
 
 	// split @include flex(0, 0, auto) into individual props
@@ -35,75 +62,26 @@ $max-width: 1200px;
 	// in some spots we need it and some we dont
 	// more why here: https://github.com/kristoferjoseph/flexboxgrid/issues/126
 
-	padding-right: $half-gutter-width;
-	padding-left: $half-gutter-width;
+	padding-right: $padding;
+	padding-left: $padding;
 }
 
-/**
- * var calcs
- */
-
-$gutter-compensation: $gutter-width * 0.5 * -1;
-$half-gutter-width: $gutter-width * 0.5;
-
-/**
- * classes
- */
-
-*,
-*:before,
-*:after {
-	box-sizing: border-box;
-}
-
-.container {
-	margin-right: auto;
-	margin-left: auto;
-	padding-right: $outer-margin;
-	padding-left: $outer-margin;
-	max-width: $max-width;
-}
-
-.container-full {
-	width: 100%;
-	padding-right: $outer-margin;
-	padding-left: $outer-margin;
-}
-
-.row {
-	box-sizing: border-box;
-	display: flex;
-	flex: 0 1 auto;
-	flex-direction: row;
-	flex-wrap: wrap;
-	margin-right: $gutter-compensation;
-	margin-left: $gutter-compensation;
-}
-
-.row.reverse {
-	flex-direction: row-reverse;
-}
-
-.col.reverse {
-	flex-direction: column-reverse;
-}
-
-@mixin make-col($name) {
+@mixin mj-sass-col($name, $half-gutter-width) {
 	.col-#{$name} {
-		@include flexboxgrid-sass-col-common;
+		@include mj-sass-col-common($half-gutter-width);
 		flex-basis: auto;
 	}
-	@for $i from 0 through $grid-columns {
+	@for $i from 0 through $mj-grid-columns {
 		.col-#{$name}-#{$i} {
-			@include flexboxgrid-sass-col-common;
-			flex-basis: 100% / $grid-columns * $i;
-			max-width: 100% / $grid-columns * $i;
+			@include mj-sass-col-common($half-gutter-width);
+			flex-basis: 100% / $mj-grid-columns * $i;
+			max-width: 100% / $mj-grid-columns * $i;
 		}
 	}
-	@for $i from 0 through $grid-columns {
+	@for $i from 0 through $mj-grid-columns {
 		.col-#{$name}-offset-#{$i} {
-			@include flexboxgrid-sass-col-common;
-			margin-left: 100% / $grid-columns * $i;
+			@include mj-sass-col-common($half-gutter-width);
+			margin-left: 100% / $mj-grid-columns * $i;
 		}
 	}
 	.col-#{$name} {
@@ -155,11 +133,52 @@ $half-gutter-width: $gutter-width * 0.5;
 	}
 }
 
-@include make-col(xs);
-@each $breakpoint in $breakpoints {
-	$name: nth($breakpoint, 1);
-	$size: nth($breakpoint, 2);
-	@include at($size) {
-		@include make-col($name);
+@mixin mj-flexboxgird-init {
+	$gutter-compensation: $mj-gutter-width * 0.5 * -1;
+	$first-breakpoint: nth($mj-breakpoints, 1);
+	$breakpoints-tail: map-remove($mj-breakpoints, nth($first-breakpoint, 1));
+
+	.container {
+		margin-right: auto;
+		margin-left: auto;
+		padding-right: $mj-outer-margin;
+		padding-left: $mj-outer-margin;
+		max-width: $mj-max-width;
+	}
+
+	.container-full {
+		width: 100%;
+		padding-right: $mj-outer-margin;
+		padding-left: $mj-outer-margin;
+	}
+
+	.row {
+		box-sizing: border-box;
+		display: flex;
+		flex: 0 1 auto;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-right: $gutter-compensation;
+		margin-left: $gutter-compensation;
+		&.reverse {
+			flex-direction: row-reverse;
+		}
+	}
+
+	.col {
+		&.reverse {
+			flex-direction: column-reverse;
+		}
+	}
+
+	@include mj-sass-col(nth($first-breakpoint, 1), $mj-gutter-width / 2);
+	@each $breakpoint in $breakpoints-tail {
+		$name: nth($breakpoint, 1);
+		$size: nth($breakpoint, 2);
+		@include at($size) {
+			@include mj-sass-col($name, $mj-gutter-width / 2);
+		}
 	}
 }
+
+@include mj-flexboxgird-init;
