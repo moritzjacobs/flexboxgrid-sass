@@ -2,19 +2,34 @@
 	"id": "mj-flexboxgrid-sass",
 	"viewports": [
 		{
-			"label": "sm",
+			"label": "xs",
 			"width": 320,
 			"height": 480
 		},
 		{
+			"label": "sm",
+			"width": 480,
+			"height": 640
+		},
+		{
 			"label": "md",
-			"width": 1024,
-			"height": 768
+			"width": 768,
+			"height": 1024
 		},
 		{
 			"label": "lg",
 			"width": 1024,
-			"height": 768
+			"height": 800
+		},
+		{
+			"label": "xl",
+			"width": 1200,
+			"height": 720
+		},
+		{
+			"label": "xxl",
+			"width": 1440,
+			"height": 810
 		}
 	],
 	"scenarios": [

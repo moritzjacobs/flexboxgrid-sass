@@ -16,7 +16,8 @@
 		"dist": "gulp dist --env dist",
 		"docs": "gulp docs",
 		"bs": "backstop",
-		"test": "npm run dist; backstop test"
+		"bspkill": "pkill -f \"(chrome)?(--headless)\"",
+		"test": "npm run dist; npm run bspkill; backstop test"
 	},
 	"repository": {
 		"type": "git",
