@@ -7,12 +7,20 @@ A simplified, one file, edit happy adaptation of [hugeinc/flexboxgrid-sass](http
 - removed the `sass-flex-mixin` dependency in favour of using autoprefixer for as much backwards compatibility as you need.
 - `mj-gulp-workflow` is used for sass compilation
 - improved file structure
+- added backstopjs based regression testing
 
-## Docs
-[Online docs](https://moritzjacobs.github.io/mj-flexboxgrid-sass/)
+## Development
 
-`npm run docs`
+`npm run dev` during development, then `npm run dist` for distribution.
+
+## [Docs](https://moritzjacobs.github.io/mj-flexboxgrid-sass/)
+
+or `npm run docs`
+
+## Tests
+
+`npm test`
 
 ## This fork is not published on npm
 
-Hugs and K.I.S.S.es!
+<small>Hugs and _KISS_es!</small>
