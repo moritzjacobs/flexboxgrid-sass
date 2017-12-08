@@ -1,3 +1,5 @@
 node_modules/
 .DS_Store
 *.map
+/backstop_data
+!/backstop_data/bitmaps_reference
