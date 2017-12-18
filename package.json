@@ -1,6 +1,6 @@
 {
 	"name": "mj-flexboxgrid-sass",
-	"version": "9.0.2",
+	"version": "9.1.0",
 	"description": "Grid based off of flexboxgrid-sass (based off of CSS3 flexbox specification)",
 	"main": "gulpfile.js",
 	"dependencies": {
