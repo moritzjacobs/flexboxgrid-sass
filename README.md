@@ -21,11 +21,14 @@ or `npm run docs`
 
 `npm test`
 
-## This fork is not published on npm
+## This fork is **not** published on npm
 
 <small>Hugs and _KISS_es!</small>
 
 # changelog
+
+### 9.2.0
+- Added utility mixins
 
 ### 9.1.0
 - Added mixin for breakpoint retreival

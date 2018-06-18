@@ -97,7 +97,7 @@ pre {
 	margin: 30px 0 50px;
 	&.prettyprint {
 		overflow-x: auto;
-		padding: 1.25em;
+		padding: 1em !important;
 		border: 1px solid $color_quill_gray_approx;
 		border-left-width: 5px;
 		margin: 1.6em 0;

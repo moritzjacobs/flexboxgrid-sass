@@ -4,8 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Flexboxgrid Sass</title>
-    <link rel="stylesheet" href="mj-flexboxgrid.css"/>
-    <link rel="stylesheet" href="docs.css"/>
+    <link rel="stylesheet" href="styles.css"/>
     <script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   </head>
   <body>
@@ -623,7 +622,70 @@
       3
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;</code></pre><a name="api"></a>
+          <section class="page-section">
+            <h2>API</h2>
+            <h3>Example</h3>
+            <div class="foobar-wrapper">
+              <div class="foobar-row">
+                <div class="foobar-item">
+                  <div class="box">1</div>
+                </div>
+                <div class="foobar-item">
+                  <div class="box">2</div>
+                </div>
+                <div class="foobar-item">
+                  <div class="box">3</div>
+                </div>
+              </div>
+            </div>
+            <pre class="prettyprint"><code class="lang-html">&lt;div class=&quot;foobar-wrapper&quot;&gt;
+  &lt;div class=&quot;foobar-row&quot;&gt;
+    &lt;div class=&quot;foobar-item&quot;&gt;&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;foobar-item&quot;&gt;&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;foobar-item&quot;&gt;&lt;div class=&quot;box&quot;&gt;3&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.foobar {
+  &amp;-wrapper {
+    @include container;
+  }
+  &amp;-row {
+    @include row;
+  }
+  &amp;-item {
+    @include col(4);
+  }
+}
+</code></pre>
+            <div class="foobar-wrapper">
+              <div class="foobar-row">
+                <div class="foobar2-item">
+                  <div class="box">1</div>
+                </div>
+                <div class="foobar2-item">
+                  <div class="box">2</div>
+                </div>
+              </div>
+            </div>
+            <pre class="prettyprint"><code class="lang-html">&lt;div class=&quot;foobar-wrapper&quot;&gt;
+  &lt;div class=&quot;foobar-row&quot;&gt;
+    &lt;div class=&quot;foobar2-item&quot;&gt;&lt;div class=&quot;box&quot;&gt;1&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;foobar2-item&quot;&gt;&lt;div class=&quot;box&quot;&gt;2&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+.foobar2 {
+  &amp;-item {
+    @include col(4);
+    &amp;:last-child {
+      @include offset(4);
+    }
+  }
+}
+</code></pre>
+          </section>
         </section>
       </main>
     </div>

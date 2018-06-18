@@ -31,7 +31,7 @@ module.exports = {
 
 	paths: {
 		css: {
-			"./docs": ["mj-flexboxgrid.scss", "./docs/scss/docs.scss"],
+			"./docs": ["mj-flexboxgrid.scss", "./docs/scss/*.scss"],
 		},
 		pug: {
 			pug: ["docs/index.pug"]

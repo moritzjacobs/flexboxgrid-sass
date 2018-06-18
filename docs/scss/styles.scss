@@ -1,0 +1,23 @@
+@import "../../mj-flexboxgrid";
+@import "docs";
+
+.foobar {
+	&-wrapper {
+		@include container;
+	}
+
+	&-row {
+		@extend .box;
+		@include row;
+	}
+	&-item {
+		@include col(4);
+	}
+}
+
+.foobar2-item {
+	@include col(4);
+	&:last-child {
+		@include offset(4);
+	}
+}

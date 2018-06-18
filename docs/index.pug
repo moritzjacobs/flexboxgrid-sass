@@ -4,8 +4,7 @@ html(lang="en")
 		meta(charset="UTF-8")
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		title Flexboxgrid Sass
-		link(rel="stylesheet", href="mj-flexboxgrid.css")
-		link(rel="stylesheet", href="docs.css")
+		link(rel="stylesheet", href="styles.css")
 		script(type="text/javascript",src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js")
 	body
 		header.home.u-cf.bg
@@ -520,6 +519,67 @@ html(lang="en")
 											</div>
 										</div>
 									</div>
+					a(name='api')
+					section.page-section
+						h2 API
+						h3 Example
+
+						.foobar-wrapper
+							.foobar-row
+								.foobar-item
+									.box 1
+								.foobar-item
+									.box 2
+								.foobar-item
+									.box 3
+						pre.prettyprint
+							code.lang-html
+								:code
+									<div class="foobar-wrapper">
+										<div class="foobar-row">
+											<div class="foobar-item"><div class="box">1</div></div>
+											<div class="foobar-item"><div class="box">2</div></div>
+											<div class="foobar-item"><div class="box">3</div></div>
+										</div>
+									</div>
+
+									.foobar {
+										&-wrapper {
+											@include container;
+										}
+										&-row {
+											@include row;
+										}
+										&-item {
+											@include col(4);
+										}
+									}
+
+						.foobar-wrapper
+							.foobar-row
+								.foobar2-item
+									.box 1
+								.foobar2-item
+									.box 2
+						pre.prettyprint
+							code.lang-html
+								:code
+									<div class="foobar-wrapper">
+										<div class="foobar-row">
+											<div class="foobar2-item"><div class="box">1</div></div>
+											<div class="foobar2-item"><div class="box">2</div></div>
+										</div>
+									</div>
+
+									.foobar2 {
+										&-item {
+											@include col(4);
+											&:last-child {
+												@include offset(4);
+											}
+										}
+									}
+
 		.container-full
 			.row.center-xs
 				.col-xs

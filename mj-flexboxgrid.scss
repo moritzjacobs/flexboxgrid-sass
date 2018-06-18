@@ -4,7 +4,7 @@
 	A simplified, one file, edit happy adaptation of flexboxgrid-sass,
 	which in turn is an adaption of the original flexboxgrid.com created by @kristoferjoseph.
 
-	@version	9.1.0
+	@version	9.2.0
 	@author		Moritz Jacobs <https://github.com/moritzjacobs>
 	@author		@tduarte <https://github.com/tduarte>
 	@license	Apache-2.0
@@ -30,19 +30,22 @@ $mj-gutter-width: 1rem !default;
 $mj-outer-margin: 1rem !default;
 $mj-max-width: 1440px !default;
 $mj-breakpoints: (
-		xs: 320px,
-		sm: 480px,
-		md: 768px,
-		lg: 1024px,
-		xl: 1200px,
-		xxl: 1440px
-	)
-	!default;
+	xs: 320px,
+	sm: 480px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1200px,
+	xxl: 1440px
+) !default;
 
 /**
  * Mixins and functions
  */
 
+/**
+ * mobile-first media query at breakpoint
+ * @param  {cssunit} $size	breakpoint in pixels or slug (see $mj-breakpoints)
+ */
 @mixin at($size) {
 	@if type-of($size) == string {
 		$size: map-get($mj-breakpoints, $size);
@@ -52,6 +55,10 @@ $mj-breakpoints: (
 	}
 }
 
+/**
+ * mobile-last media query at breakpoint
+ * @param  {cssunit} $size	breakpoint in pixels or slug (see $mj-breakpoints)
+ */
 @mixin until($size) {
 	@if type-of($size) == string {
 		$size: map-get($mj-breakpoints, $size);
@@ -61,8 +68,83 @@ $mj-breakpoints: (
 	}
 }
 
+/**
+ * Get breakpoint by name
+ * @param  {string} $name
+ */
 @function breakpoint($name) {
 	@return map-get($mj-breakpoints, $name);
+}
+
+@mixin container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $mj-outer-margin;
+	padding-left: $mj-outer-margin;
+	max-width: $mj-max-width;
+}
+
+/**
+ * utility mixin for rows
+ * @param  {cssunit} $size	breakpoint in pixels or slug (see $mj-breakpoints)
+ */
+@mixin row {
+	$gutter-compensation: $mj-gutter-width * 0.5 * -1;
+
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-right: $gutter-compensation;
+	margin-left: $gutter-compensation;
+	&.reverse {
+		flex-direction: row-reverse;
+	}
+}
+
+/**
+ * utility mixin for individual columns
+ * @param  {int} $i	column width
+ */
+@mixin col($i) {
+	flex-grow: 0;
+	flex-shrink: 0;
+	padding-right: $mj-gutter-width / 2;
+	padding-left: $mj-gutter-width / 2;
+	flex-basis: 100% / $mj-grid-columns * $i;
+	max-width: 100% / $mj-grid-columns * $i;
+}
+
+/**
+ * utility mixin for column offset
+ * @param  {int} $i	offset width
+ */
+@mixin offset($i) {
+	margin-left: 100% / $mj-grid-columns * $i;
+}
+
+/**
+ * utility mixin for declaring multiple properties for multiple breakpoints
+ * @param  {list} $values	list of values for breakpoints (in $mj-breakpoint)
+ *
+ * e.g.
+ *
+ * @include breakpoint-stepper((
+ *         xs: #ff0000,
+ *         md: #00ff00,
+ *         lg: #0000ff
+ *     ), color);
+ * 
+ */
+@mixin breakpoint-stepper($values, $property) {
+	@each $k, $v in $values {
+		@if map-has-key($mj-breakpoints, $k) {
+			@include at($k) {
+				#{$property}: $v;
+			}
+		}
+	}
 }
 
 /***********************************
@@ -75,7 +157,7 @@ $mj-breakpoints: (
  * classes
  */
 
-@mixin mj-sass-col-common($padding) {
+@mixin mj-flexboxgrid-col-common($padding) {
 	box-sizing: border-box;
 
 	// split @include flex(0, 0, auto) into individual props
@@ -90,21 +172,21 @@ $mj-breakpoints: (
 	padding-left: $padding;
 }
 
-@mixin mj-sass-col($name, $half-gutter-width) {
+@mixin mj-flexboxgrid-col($name, $half-gutter-width) {
 	.col-#{$name} {
-		@include mj-sass-col-common($half-gutter-width);
+		@include mj-flexboxgrid-col-common($half-gutter-width);
 		flex-basis: auto;
 	}
 	@for $i from 0 through $mj-grid-columns {
 		.col-#{$name}-#{$i} {
-			@include mj-sass-col-common($half-gutter-width);
+			@include mj-flexboxgrid-col-common($half-gutter-width);
 			flex-basis: 100% / $mj-grid-columns * $i;
 			max-width: 100% / $mj-grid-columns * $i;
 		}
 	}
 	@for $i from 0 through $mj-grid-columns {
 		.col-#{$name}-offset-#{$i} {
-			@include mj-sass-col-common($half-gutter-width);
+			@include mj-flexboxgrid-col-common($half-gutter-width);
 			margin-left: 100% / $mj-grid-columns * $i;
 		}
 	}
@@ -158,16 +240,11 @@ $mj-breakpoints: (
 }
 
 @mixin mj-flexboxgrid-init {
-	$gutter-compensation: $mj-gutter-width * 0.5 * -1;
 	$first-breakpoint: nth($mj-breakpoints, 1);
 	$breakpoints-tail: map-remove($mj-breakpoints, nth($first-breakpoint, 1));
 
 	.container {
-		margin-right: auto;
-		margin-left: auto;
-		padding-right: $mj-outer-margin;
-		padding-left: $mj-outer-margin;
-		max-width: $mj-max-width;
+		@include container;
 	}
 
 	.container-full {
@@ -177,16 +254,7 @@ $mj-breakpoints: (
 	}
 
 	.row {
-		box-sizing: border-box;
-		display: flex;
-		flex: 0 1 auto;
-		flex-direction: row;
-		flex-wrap: wrap;
-		margin-right: $gutter-compensation;
-		margin-left: $gutter-compensation;
-		&.reverse {
-			flex-direction: row-reverse;
-		}
+		@include row;
 	}
 
 	.col {
@@ -195,12 +263,12 @@ $mj-breakpoints: (
 		}
 	}
 
-	@include mj-sass-col(nth($first-breakpoint, 1), $mj-gutter-width / 2);
+	@include mj-flexboxgrid-col(nth($first-breakpoint, 1), $mj-gutter-width / 2);
 	@each $breakpoint in $breakpoints-tail {
 		$name: nth($breakpoint, 1);
 		$size: nth($breakpoint, 2);
 		@include at($size) {
-			@include mj-sass-col($name, $mj-gutter-width / 2);
+			@include mj-flexboxgrid-col($name, $mj-gutter-width / 2);
 		}
 	}
 }
