@@ -157,7 +157,7 @@ $mj-breakpoints: (
 	}
 }
 
-@mixin mj-flexboxgird-init {
+@mixin mj-flexboxgrid-init {
 	$gutter-compensation: $mj-gutter-width * 0.5 * -1;
 	$first-breakpoint: nth($mj-breakpoints, 1);
 	$breakpoints-tail: map-remove($mj-breakpoints, nth($first-breakpoint, 1));
@@ -205,4 +205,4 @@ $mj-breakpoints: (
 	}
 }
 
-@include mj-flexboxgird-init;
+@include mj-flexboxgrid-init;
