@@ -89,7 +89,7 @@ $mj-breakpoints: (
  * @param  {cssunit} $size	breakpoint in pixels or slug (see $mj-breakpoints)
  */
 @mixin row {
-	$gutter-compensation: $mj-gutter-width * -1;
+	$gutter-compensation: $mj-gutter-width * 0.5 * -1;
 
 	box-sizing: border-box;
 	display: flex;
