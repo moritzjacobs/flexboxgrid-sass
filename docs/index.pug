@@ -21,8 +21,10 @@ html(lang="en")
 			main
 				a(name='responsive')
 				section.page-section
-					h2 Responsive
-					p Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths.
+					.row
+						.col-xs
+							h2 Responsive
+							p Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths.
 					.row
 						.col-xs-12.col-sm-3.col-md-2.col-lg-1
 							.box-row
@@ -40,22 +42,26 @@ html(lang="en")
 							.box-row
 						.col-xs-2.col-sm-6.col-md-4.col-lg-2
 							.box-row
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row">
-										<div class="col-xs-12
-																col-sm-8
-																col-md-6
-																col-lg-4">
-												<div class="box">Responsive</div>
-										</div>
-									</div>
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row">
+												<div class="col-xs-12
+																		col-sm-8
+																		col-md-6
+																		col-lg-4">
+														<div class="box">Responsive</div>
+												</div>
+											</div>
 				a(name='fluid')
 				section.page-section
-					br
-					h2 Fluid
-					p Percent based widths allow fluid resizing of columns and rows.
+					.row
+						.col-xs
+							br
+							h2 Fluid
+							p Percent based widths allow fluid resizing of columns and rows.
 					.row
 						.col-xs-12
 							.box-row
@@ -91,20 +97,24 @@ html(lang="en")
 							.box-row
 				a(name='syntax')
 				section.page-section
-					h2 Simple Syntax
-					p All you need to remember is row, column, content.
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row">
-										<div class="col-xs-12">
-											<div class="box">12</div>
-										</div>
-									</div>
+					.row
+						.col-xs
+							h2 Simple Syntax
+							p All you need to remember is row, column, content.
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row">
+												<div class="col-xs-12">
+													<div class="box">12</div>
+												</div>
+											</div>
 				a(name='offsets')
 				section.page-section
-					h2 Offsets
-					p Offset a column
+					.row
+						.col-xs
+							h2 Offsets
+							p Offset a column
 					.row
 						.col-xs-offset-11.col-xs-1
 							.box-row
@@ -138,18 +148,22 @@ html(lang="en")
 					.row
 						.col-xs-offset-1.col-xs-11
 							.box-row
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row">
-										<div class="col-xs-offset-3 col-xs-9">
-											<div class="box">offset</div>
-										</div>
-									</div>
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row">
+												<div class="col-xs-offset-3 col-xs-9">
+													<div class="box">offset</div>
+												</div>
+											</div>
 				a(name='auto')
 				section.page-section
-					h2 Auto Width
-					p Add any number of auto sizing columns to a row. Let the grid figure it out.
+					.row
+						.col-xs
+							h2 Auto Width
+							p Add any number of auto sizing columns to a row. Let the grid figure it out.
 					.row
 						.col-xs
 							.box-row
@@ -162,18 +176,22 @@ html(lang="en")
 							.box-row
 						.col-xs
 							.box-row
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row">
-										<div class="col-xs">
-											<div class="box">auto</div>
-										</div>
-									</div>
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row">
+												<div class="col-xs">
+													<div class="box">auto</div>
+												</div>
+											</div>
 				a(name='nested')
 				section.page-section
-					h2 Nested Grids
-					p Nest grids inside grids inside grids.
+					.row
+						.col-xs
+							h2 Nested Grids
+							p Nest grids inside grids inside grids.
 					.row
 						.col-xs-7
 							.box.box-container
@@ -200,146 +218,178 @@ html(lang="en")
 													.box-nested
 												.col-xs-6
 													.box-nested
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row">
-										<div class="col-xs">
-											<div class="box">auto</div>
-												<div class="row">
-													<div class="col-xs">
-														<div class="box">auto</div>
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row">
+												<div class="col-xs">
+													<div class="box">auto</div>
+														<div class="row">
+															<div class="col-xs">
+																<div class="box">auto</div>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-									</div>
 				a(name='alignment')
 				section.page-section
-					h2 Alignment
-					p Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column
-					h3 .start-
+					.row
+						.col-xs
+							h2 Alignment
+							p Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column
+							h3 .start-
 					.row
 						.col-xs-12
 							.box.box-container
 								.row.start-xs
 									.col-xs-6
 										.box-nested
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row start-xs">
-										<div class="col-xs-6">
-											<div class="box">
-												start
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row start-xs">
+												<div class="col-xs-6">
+													<div class="box">
+														start
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-					h3 .center-
+					.row
+						.col-xs
+							h3 .center-
 					.row
 						.col-xs-12
 							.box.box-container
 								.row.center-xs
 									.col-xs-6
 										.box-nested
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row center-xs">
-										<div class="col-xs-6">
-											<div class="box">
-												center
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row center-xs">
+												<div class="col-xs-6">
+													<div class="box">
+														center
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-					h3 .end-
+					.row
+						.col-xs
+							h3 .end-
 					.row
 						.col-xs-12
 							.box.box-container
 								.row.end-xs
 									.col-xs-6
 										.box-nested
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row end-xs">
-										<div class="col-xs-6">
-											<div class="box">
-												end
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row end-xs">
+												<div class="col-xs-6">
+													<div class="box">
+														end
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-					p Here is an example of using the modifiers in conjunction to acheive different alignment at different viewport sizes.
+					.row
+						.col-xs
+							p Here is an example of using the modifiers in conjunction to acheive different alignment at different viewport sizes.
 					.row
 						.col-xs-12
 							.box.box-container
 								.row.center-xs.end-sm.start-lg
 									.col-xs-6
 										.box-nested
-					h4 Example
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row center-xs end-sm start-lg">
-										<div class="col-xs-6">
-											<div class="box">
-												All together now
+					.row
+						.col-xs
+							h4 Example
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row center-xs end-sm start-lg">
+												<div class="col-xs-6">
+													<div class="box">
+														All together now
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-					h3 .top-
+					.row
+						.col-xs
+							h3 .top-
 					.row.top-xs
 						.col-xs-6
 							.box-large
 						.col-xs-6
 							.box
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row top-xs">
-										<div class="col-xs-6">
-											<div class="box">
-												top
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row top-xs">
+												<div class="col-xs-6">
+													<div class="box">
+														top
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-					h3 .middle-
+					.row
+						.col-xs
+							h3 .middle-
 					.row.middle-xs
 						.col-xs-6
 							.box-large
 						.col-xs-6
 							.box
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row middle-xs">
-										<div class="col-xs-6">
-											<div class="box">
-												middle
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row middle-xs">
+												<div class="col-xs-6">
+													<div class="box">
+														middle
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-					h3 .bottom-
+					.row
+						.col-xs
+							h3 .bottom-
 					.row.bottom-xs
 						.col-xs-6
 							.box-large
 						.col-xs-6
 							.box
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row bottom-xs">
-										<div class="col-xs-6">
-											<div class="box">
-												bottom
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row bottom-xs">
+												<div class="col-xs-6">
+													<div class="box">
+														bottom
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
 				a(name='distribution')
 				section.page-section
-					h2 Distribution
-					p Add classes to distribute the contents of a row or column.
-					h3 .around-
+					.row
+						.col-xs
+							h2 Distribution
+							p Add classes to distribute the contents of a row or column.
+							h3 .around-
 					.row
 						.col-xs-12
 							.box.box-container
@@ -350,27 +400,31 @@ html(lang="en")
 										.box-nested
 									.col-xs-2
 										.box-nested
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row around-xs">
-										<div class="col-xs-2">
-											<div class="box">
-													around
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row around-xs">
+												<div class="col-xs-2">
+													<div class="box">
+															around
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														around
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														around
+													</div>
+												</div>
 											</div>
-										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												around
-											</div>
-										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												around
-											</div>
-										</div>
-									</div>
-					h3 .between-
+					.row
+						.col-xs
+							h3 .between-
 					.row
 						.col-xs-12
 							.box.box-container
@@ -381,31 +435,35 @@ html(lang="en")
 										.box-nested
 									.col-xs-2
 										.box-nested
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row between-xs">
-										<div class="col-xs-2">
-											<div class="box">
-												between
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row between-xs">
+												<div class="col-xs-2">
+													<div class="box">
+														between
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														between
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														between
+													</div>
+												</div>
 											</div>
-										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												between
-											</div>
-										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												between
-											</div>
-										</div>
-									</div>
 				a(name='reordering')
 				section.page-section
-					h2 Reordering
-					p Add classes to reorder columns.
-					h3 .first-
+					.row
+						.col-xs
+							h2 Reordering
+							p Add classes to reorder columns.
+							h3 .first-
 					.row
 						.col-xs-12
 							.box.box-container
@@ -422,27 +480,31 @@ html(lang="en")
 										.box-first 5
 									.col-xs-2.first-xs
 										.box-nested 6
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row">
-										<div class="col-xs-2">
-											<div class="box">
-												1
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row">
+												<div class="col-xs-2">
+													<div class="box">
+														1
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														2
+													</div>
+												</div>
+												<div class="col-xs-2 first-xs">
+													<div class="box">
+														3
+													</div>
+												</div>
 											</div>
-										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												2
-											</div>
-										</div>
-										<div class="col-xs-2 first-xs">
-											<div class="box">
-												3
-											</div>
-										</div>
-									</div>
-					h3 .last-
+					.row
+						.col-xs
+							h3 .last-
 					.row
 						.col-xs-12
 							.box.box-container
@@ -459,30 +521,34 @@ html(lang="en")
 										.box-first 5
 									.col-xs-2
 										.box-first 6
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row">
-										<div class="col-xs-2 last-xs">
-											<div class="box">
-												1
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row">
+												<div class="col-xs-2 last-xs">
+													<div class="box">
+														1
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														2
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														3
+													</div>
+												</div>
 											</div>
-										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												2
-											</div>
-										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												3
-											</div>
-										</div>
-									</div>
 				a(name='reversing')
 				section.page-section
-					h2 Reversing
-					h3 .reverse
+					.row
+						.col-xs
+							h2 Reversing
+							h3 .reverse
 					.row
 						.col-xs-12
 							.box.box-container
@@ -499,86 +565,90 @@ html(lang="en")
 										.box-nested 5
 									.col-xs-2
 										.box-nested 6
-					pre.prettyprint
-						code.lang-html
-								:code
-									<div class="row reverse">
-										<div class="col-xs-2">
-											<div class="box">
-												1
+					.row
+						.col-xs
+							pre.prettyprint
+								code.lang-html
+										:code
+											<div class="row reverse">
+												<div class="col-xs-2">
+													<div class="box">
+														1
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														2
+													</div>
+												</div>
+												<div class="col-xs-2">
+													<div class="box">
+														3
+													</div>
+												</div>
+											</div>
+				a(name='api')
+				section.page-section
+					.row
+						.col-xs
+							h2 API
+							h3 Example
+
+							.foobar-wrapper
+								.foobar-row
+									.foobar-item
+										.box 1
+									.foobar-item
+										.box 2
+									.foobar-item
+										.box 3
+							pre.prettyprint
+								code.lang-html
+									:code
+										<div class="foobar-wrapper">
+											<div class="foobar-row">
+												<div class="foobar-item"><div class="box">1</div></div>
+												<div class="foobar-item"><div class="box">2</div></div>
+												<div class="foobar-item"><div class="box">3</div></div>
 											</div>
 										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												2
-											</div>
-										</div>
-										<div class="col-xs-2">
-											<div class="box">
-												3
-											</div>
-										</div>
-									</div>
-					a(name='api')
-					section.page-section
-						h2 API
-						h3 Example
 
-						.foobar-wrapper
-							.foobar-row
-								.foobar-item
-									.box 1
-								.foobar-item
-									.box 2
-								.foobar-item
-									.box 3
-						pre.prettyprint
-							code.lang-html
-								:code
-									<div class="foobar-wrapper">
-										<div class="foobar-row">
-											<div class="foobar-item"><div class="box">1</div></div>
-											<div class="foobar-item"><div class="box">2</div></div>
-											<div class="foobar-item"><div class="box">3</div></div>
-										</div>
-									</div>
-
-									.foobar {
-										&-wrapper {
-											@include container;
-										}
-										&-row {
-											@include row;
-										}
-										&-item {
-											@include col(4);
-										}
-									}
-
-						.foobar-wrapper
-							.foobar-row
-								.foobar2-item
-									.box 1
-								.foobar2-item
-									.box 2
-						pre.prettyprint
-							code.lang-html
-								:code
-									<div class="foobar-wrapper">
-										<div class="foobar-row">
-											<div class="foobar2-item"><div class="box">1</div></div>
-											<div class="foobar2-item"><div class="box">2</div></div>
-										</div>
-									</div>
-
-									.foobar2 {
-										&-item {
-											@include col(4);
-											&:last-child {
-												@include offset(4);
+										.foobar {
+											&-wrapper {
+												@include container;
+											}
+											&-row {
+												@include row;
+											}
+											&-item {
+												@include col(4);
 											}
 										}
-									}
+
+							.foobar-wrapper
+								.foobar-row
+									.foobar2-item
+										.box 1
+									.foobar2-item
+										.box 2
+							pre.prettyprint
+								code.lang-html
+									:code
+										<div class="foobar-wrapper">
+											<div class="foobar-row">
+												<div class="foobar2-item"><div class="box">1</div></div>
+												<div class="foobar2-item"><div class="box">2</div></div>
+											</div>
+										</div>
+
+										.foobar2 {
+											&-item {
+												@include col(4);
+												&:last-child {
+													@include offset(4);
+												}
+											}
+										}
 
 		.container-full
 			.row.center-xs
